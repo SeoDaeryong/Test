@@ -37,10 +37,6 @@
         <path refid="Test.classpath"/>
         <path refid="Maven Dependencies.libraryclasspath"/>
     </path>
-    <path id="run.Test (1).classpath">
-        <path refid="Test.classpath"/>
-        <path refid="Maven Dependencies.libraryclasspath"/>
-    </path>
     <target name="init">
         <mkdir dir="target/classes"/>
         <mkdir dir="target/test-classes"/>
@@ -56,6 +52,8 @@
                 <exclude name="**/*.java"/>
             </fileset>
         </copy>
+    	<copy includeemptydirs="false" todir="junit">
+    	</copy>
     </target>
     <target name="clean">
         <delete dir="target/classes"/>
@@ -95,14 +93,6 @@
             <formatter type="xml"/>
             <test name="com.sunzero.test.TestCalculator" todir="${junit.output.dir}"/>
             <classpath refid="run.TestCalculator.classpath"/>
-        </junit>
-    </target>
-    <target name="Test (1)">
-        <mkdir dir="${junit.output.dir}"/>
-        <junit fork="yes" printsummary="withOutAndErr">
-            <formatter type="xml"/>
-            <test name="com.sunzero.test.TestCalculator" todir="${junit.output.dir}"/>
-            <classpath refid="run.Test (1).classpath"/>
         </junit>
     </target>
     <target name="junitreport">
