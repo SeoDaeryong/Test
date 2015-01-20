@@ -10,10 +10,6 @@
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="1.7"/>
     <property name="source" value="1.7"/>
-    <path id="JUnit 4.libraryclasspath">
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.junit_4.11.0.v201303080030/junit.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.hamcrest.core_1.3.0.v201303031735.jar"/>
-    </path>
     <path id="Maven Dependencies.libraryclasspath">
         <pathelement location="../../../.m2/repository/junit/junit/4.4/junit-4.4.jar"/>
         <pathelement location="../../../.m2/repository/org/easymock/easymock/3.0/easymock-3.0.jar"/>
@@ -34,10 +30,14 @@
     <path id="Test.classpath">
         <pathelement location="target/classes"/>
         <pathelement location="target/test-classes"/>
-        <path refid="JUnit 4.libraryclasspath"/>
+        <pathelement location="lib/junit-4.4.jar"/>
         <path refid="Maven Dependencies.libraryclasspath"/>
     </path>
     <path id="run.TestCalculator.classpath">
+        <path refid="Test.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.Test (1).classpath">
         <path refid="Test.classpath"/>
         <path refid="Maven Dependencies.libraryclasspath"/>
     </path>
@@ -95,6 +95,14 @@
             <formatter type="xml"/>
             <test name="com.sunzero.test.TestCalculator" todir="${junit.output.dir}"/>
             <classpath refid="run.TestCalculator.classpath"/>
+        </junit>
+    </target>
+    <target name="Test (1)">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="com.sunzero.test.TestCalculator" todir="${junit.output.dir}"/>
+            <classpath refid="run.Test (1).classpath"/>
         </junit>
     </target>
     <target name="junitreport">
