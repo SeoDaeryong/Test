@@ -96,8 +96,7 @@
         </junit>
     </target>
     <target name="junitreport">
-    	<copy includeemptydirs="false" todir="junit">
-    	</copy>
+    	<mkdir dir="junit"/>
         <junitreport todir="${junit.output.dir}">
             <fileset dir="${junit.output.dir}">
                 <include name="TEST-*.xml"/>
