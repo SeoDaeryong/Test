@@ -11,5 +11,4 @@ public class TestCalculator {
 	public void testAdd() {
 		assertEquals(cal.add(1,2), 3);
 	}
-
 }
