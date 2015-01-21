@@ -41,7 +41,7 @@
 	</target>
   	<target name="tests" depends="compile-tests">
 		<record name="${test.reports}/test-output.txt" append="yes" action="start"/>
-		<junit printsummary="yes" haltonerror="yes" haltonfailure="yes" fork="false" failureproperty="tests.failed" showoutput="true">
+		<junit printsummary="yes" haltonerror="no" haltonfailure="no" fork="false" failureproperty="tests.failed" showoutput="true">
 			<classpath refid="project.classpath" />
 			<formatter type="xml"/>
 			<batchtest fork="yes" todir="${test.reports}">
