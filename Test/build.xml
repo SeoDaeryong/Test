@@ -40,7 +40,7 @@
 		</javac>
 	</target>
   	<target name="tests" depends="compile-tests">
-		<record name="${test.reports}/test-output.txt" apeend="no" action="start"/>
+		<record name="${test.reports}/test-output.txt" append="no" action="start"/>
 		<junit printsummary="yes" haltonerror="no" haltonfailure="no" fork="false" failureproperty="tests.failed" showoutput="true">
 			<classpath refid="project.classpath" />
 			<formatter type="xml"/>
