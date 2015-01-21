@@ -40,13 +40,13 @@
 		</javac>
 	</target>
   	<target name="tests" depends="compile-tests">
-		<record name="${test.reports}/test-output.txt" append="no" action="start"/>
-		<junit printsummary="yes" haltonerror="no" haltonfailure="no" fork="false" failureproperty="tests.failed" showoutput="true">
+		<record name="${test.reports}/test-output.txt" append="yes" action="start"/>
+		<junit printsummary="yes" haltonerror="yes" haltonfailure="yes" fork="false" failureproperty="tests.failed" showoutput="true">
 			<classpath refid="project.classpath" />
 			<formatter type="xml"/>
 			<batchtest fork="yes" todir="${test.reports}">
 				<fileset dir="${build.test.dir}">
-					<include name="**/*Test.*" />
+					<include name="**/*Test*.*" />
 					<exclude name="*/Test*All.*" />
 				</fileset>
 			</batchtest>
